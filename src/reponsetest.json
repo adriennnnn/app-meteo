@@ -1,0 +1,44 @@
+{
+    "coord": {
+        "lon": 139,
+        "lat": 35
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 299.44,
+        "feels_like": 299.44,
+        "temp_min": 299.44,
+        "temp_max": 299.44,
+        "pressure": 1012,
+        "humidity": 83
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 0.89,
+        "deg": 225,
+        "gust": 2.24
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1656670233,
+    "sys": {
+        "type": 2,
+        "id": 2019346,
+        "country": "JP",
+        "sunrise": 1656617600,
+        "sunset": 1656669713
+    },
+    "timezone": 32400,
+    "id": 1851632,
+    "name": "Shuzenji",
+    "cod": 200
+}
