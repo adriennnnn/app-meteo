@@ -1,5 +1,5 @@
 import logo from './logo_transparent.png';
-import icon from './icons/sun.svg';
+// import icon from './icons/sun.svg';
 import './App.css';
 import { useState } from 'react';
 import React from 'react';
@@ -9,6 +9,9 @@ import cloudy from './icons/cloudy.svg';
 import Clear from './icons/cloudy-sun.svg';
 import rain from './icons/rainy.svg';
 import Thunder from './icons/thunder.svg';
+import windy from './icons/windy.svg';
+import storm from './icons/storm.svg';
+import snowy from './icons/snowy.svg';
 
 function App() {
 
@@ -61,7 +64,6 @@ function App() {
     const [weather, setWeather] = React.useState(null);
 
     React.useEffect(() => {
-
       async function getMeteo() {
         const response = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=45.764043&lon=4.835659&appid=72ce4ab1e1742d29625198574d17a0e8')
         const data = await response.json();
@@ -74,36 +76,34 @@ function App() {
       getMeteo()
     }, []);// <-- Have to pass in [] here!
 
+    function getWeatherIcon(name) {
+      switch(name){
+        case name ="Clear":
+            return "sun";
+        case name ="Clouds":
+            return "cloudy";
+        case name ="Mist":
+            return "cloudy";
+        case name ="Snow":
+            return "snowy";
+        case name ="Rain":
+            return "Rain";
+        case name ="Drizzle":
+            return "cloudy";
+        case name ="Thunderstorm":
+            return "Thunder";
+        case name ="Clear":
+            return "sun";
+        default:
+          return "mistake";
+    }
+  }
 
-
-//   const array = [];
-//   const mapTemp = array.map( img => img())
-
-// function callApi(latitude, longitude) {
-
-// }
 
 return (
-  // <div className="App">
-  //   <header className="App-header">
-  //     <img src={logo} className="App-logo" alt="logo" />
-  //     <p>
-  //       Edit <code>src/App.js</code> and save to reload.
-  //     </p>
-  //     <a
-  //       className="App-link"
-  //       href="https://reactjs.org"
-  //       target="_blank"
-  //       rel="noopener noreferrer"
-  //     >
-  //       Learn React
-  //     </a>
-  //   </header>
-  // </div>
-  <div
-  //  {weather == true ? () '' : weather}
-    id="root">
-    <div className="App">
+  <div id="root">
+   {weather ? (
+     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
@@ -112,7 +112,8 @@ return (
           <div className="weather card blue-grey darken-1">
             <div className="card-content white-text">
               <span className="card-title">Lyon</span>
-              <p><img src={icon} /></p>
+              
+              <p><img src={sun} /></p>
               <span className="temperature">
                 {Math.round(weather.main.temp - 273.15)} °c
               </span>
@@ -124,24 +125,28 @@ return (
             <div className="card-action">
               <a href="#" >
                 <p>jour 1</p>
+                <p><img src={sun} /></p>
 
               </a>
               <a href="#">
                 <p>jour 2</p>
+                <p><img src={sun} /></p>
 
 
               </a>
               <a href="#">
                 <p>jour 3</p>
-
+                <p><img src={sun} /></p>
 
               </a>
               <a href="#">
                 <p>jour 4</p>
+                <p><img src={sun} /></p>
 
               </a>
               <a href="#">
                 <p>jour 5</p>
+                <p><img src={sun} /></p>
 
               </a>
             </div>
@@ -149,6 +154,7 @@ return (
         </div>
       </div>
     </div>
+  ) : "loading"}
   </div>
 );
 }
