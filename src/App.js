@@ -4,56 +4,20 @@ import './App.css';
 import { useState } from 'react';
 import React from 'react';
 // import axios from 'axios';
-import sun from './icons/sun.svg';
-import cloudy from './icons/cloudy.svg';
+import Sun from './icons/sun.svg';
+import Clouds from './icons/cloudy.svg';
 import Clear from './icons/cloudy-sun.svg';
-import rain from './icons/rainy.svg';
+import Rain from './icons/rainy.svg';
 import Thunder from './icons/thunder.svg';
-import windy from './icons/windy.svg';
-import storm from './icons/storm.svg';
-import snowy from './icons/snowy.svg';
+import Wind from './icons/windy.svg';
+import Storm from './icons/storm.svg';
+import Snow from './icons/snowy.svg';
 
 function App() {
 
   const [positon, setPosition] = useState('');
   const latitude = 45.764043;
   const longitude = 4.835659;
-  // const url ="https://api.openweathermap.org/data/2.5/weather?lat=45.764043&lon=4.835659&appid=72ce4ab1e1742d29625198574d17a0e8";
-
-  // const exect = (event) => {
-  //   if (event.key === 'Enter') {
-  //       axios.get(url).then((response) => {
-  //         setData(response.data)
-  //         console.log(response.data)
-  //     })
-  //     setLocation('')
-  //   }
-  // }
-
-
-  // const [data, setData] = useState( () =>{
-  //   fetch('https://api.openweathermap.org/data/2.5/weather?lat=45.764043&lon=4.835659&appid=72ce4ab1e1742d29625198574d17a0e8')
-  //   .then(data =>{
-  //     console.log(data)
-  //   })
-  // })
-
-
-
-  // function weather() {
-  //   fetch('https://api.openweathermap.org/data/2.5/weather?lat=45.764043&lon=4.835659&appid=72ce4ab1e1742d29625198574d17a0e8')
-  //   .then(function(resp) { return resp.json() })
-  //   .then(function(data => setWeather ) {
-  //     console.log(data);
-  //   })
-  //   .catch(function() {
-
-  //   });
-  // }
-
-  // window.onload = function() {
-  //   weather( 6167865 );
-  // }
 
 
 
@@ -78,24 +42,24 @@ function App() {
 
     function getWeatherIcon(name) {
       switch(name){
-        case name ="Clear":
-            return "sun";
-        case name ="Clouds":
-            return "cloudy";
-        case name ="Mist":
-            return "cloudy";
-        case name ="Snow":
-            return "snowy";
-        case name ="Rain":
-            return "Rain";
-        case name ="Drizzle":
-            return "cloudy";
-        case name ="Thunderstorm":
-            return "Thunder";
-        case name ="Clear":
-            return "sun";
+        case name = "Cloudy":
+                return Clouds;
+            case name = "Clear":
+                return Clear;
+            case name =  "Rainy":
+                return Rain;
+            case name = "Snowy":
+                return Snow;
+            case name = "Stormy":
+                return Storm;
+            case name = "Sunny":
+                return Sun;
+            case name = "Thunderstorm":
+                return Thunder;
+            case name = "Windy":
+                return Wind;
         default:
-          return "mistake";
+          return "coucou";
     }
   }
 
@@ -112,8 +76,8 @@ return (
           <div className="weather card blue-grey darken-1">
             <div className="card-content white-text">
               <span className="card-title">Lyon</span>
-              
-              <p><img src={sun} /></p>
+
+              <p><img src={getWeatherIcon(weather.weather[0].main)} /></p>
               <span className="temperature">
                 {Math.round(weather.main.temp - 273.15)} °c
               </span>
@@ -123,30 +87,30 @@ return (
               </div>
             </div>
             <div className="card-action">
-              <a href="#" >
+              <a href="#"  >
                 <p>jour 1</p>
-                <p><img src={sun} /></p>
+                <p><img src={Sun} /></p>
 
               </a>
               <a href="#">
                 <p>jour 2</p>
-                <p><img src={sun} /></p>
+                <p><img src={Clear} /></p>
 
 
               </a>
               <a href="#">
                 <p>jour 3</p>
-                <p><img src={sun} /></p>
+                <p><img src={Storm} /></p>
 
               </a>
               <a href="#">
                 <p>jour 4</p>
-                <p><img src={sun} /></p>
+                <p><img src={Rain} /></p>
 
               </a>
               <a href="#">
                 <p>jour 5</p>
-                <p><img src={sun} /></p>
+                <p><img src={Wind} /></p>
 
               </a>
             </div>
@@ -154,7 +118,10 @@ return (
         </div>
       </div>
     </div>
-  ) : "loading"}
+  ) : (
+    <div className='looding-part'>
+    </div>
+  )}
   </div>
 );
 }
