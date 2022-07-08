@@ -32,7 +32,6 @@ function App() {
             }
         }
      } 
-
       function getWeatherIcon(name){
         switch(name){
             case name = "Cloudy":

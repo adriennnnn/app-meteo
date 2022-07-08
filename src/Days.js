@@ -39,6 +39,20 @@ export default function Days(props){
         case 7:
             day = "Dimanche";
             break;
+        case 8:
+            day = "Lundi";
+            break;
+        case 9:
+            day = "Mardi";
+            break;
+        case 10:
+            day = "Mercredi";
+            break;
+        case 11:
+            day = "Jeudi";
+        break;
+                    
+        
 }
 return (
     <div key={index} className="day">
